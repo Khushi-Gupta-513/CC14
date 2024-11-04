@@ -2,7 +2,7 @@
 const customerTickets = document.getElementById('customerTickets');
 const errorMessage = document.getElementById('errorMessage');
 
-// Async function to fetch and display unresolved tickets
+// Async function to fetch unresolved tickets
 async function unresolvedTickets() {
     // Create a loading message while fetching data
     const loadingMessage = document.createElement('li');
@@ -22,24 +22,6 @@ async function unresolvedTickets() {
             throw new Error('No unresolved tickets available');
         }
 
-        // Loop through the fetched tickets and display them
-        tickets.forEach(ticket => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `Ticket ID: ${ticket.id}, Customer Name: User ${ticket.userId}, Issue Description: ${ticket.title}, Details: ${ticket.body}`;
-            customerTickets.appendChild(listItem);
-        });
-    } catch (error) {
-        // Handle errors by displaying a message and logging to console
-        console.error('Error:', error.message);
-        errorMessage.textContent = error.message; // Show error message on the webpage
-    } finally {
-        // Remove the loading message once the fetching process is complete
-        customerTickets.removeChild(loadingMessage);
-        console.log("Loading message removed."); // Log the cleanup action
-    }
-}
-
-// Fetch unresolved tickets when the script loads
-unresolvedTickets();
+        // Add the following line for Commit 3 here:
 
 
