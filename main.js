@@ -22,6 +22,17 @@ async function unresolvedTickets() {
             throw new Error('No unresolved tickets available');
         }
 
-        // Add the following line for Commit 3 here:
+        // Loop through the fetched tickets and display them
+        tickets.forEach(ticket => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Ticket ID: ${ticket.id}, Customer Name: User ${ticket.userId}, Issue Description: ${ticket.title}, Details: ${ticket.body}`;
+            customerTickets.appendChild(listItem);
+        });
+    } catch (error) {
+        // Handle errors by displaying a message and logging to console
+        console.error('Error:', error.message);
+        errorMessage.textContent = error.message; // Show error message on the webpage
+    } finally {
+        // Add this final block for Commit 4
 
 
