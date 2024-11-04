@@ -33,6 +33,14 @@ async function unresolvedTickets() {
         console.error('Error:', error.message);
         errorMessage.textContent = error.message; // Show error message on the webpage
     } finally {
-        // Add this final block for Commit 4
+
+        customerTickets.removeChild(loadingMessage);
+        console.log("Loading message removed."); // Log the cleanup action
+    }
+}
+
+// Fetch unresolved tickets when the script loads
+unresolvedTickets();
+
 
 
